@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="300dp"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/textView"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="7"
+            android:id="@+id/seven_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="8"
+            android:id="@+id/eight_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="9"
+            android:id="@+id/nine_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="+"
+            android:id="@+id/plus_button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="4"
+            android:id="@+id/four_number"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="5"
+            android:id="@+id/five_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="6"
+            android:id="@+id/six_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="-"
+            android:id="@+id/minus_button"
+            android:onClick=""/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="1"
+            android:id="@+id/one_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="2"
+            android:id="@+id/two_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="3"
+            android:id="@+id/three_button"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="="
+            android:id="@+id/equal_button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="0"
+            android:layout_weight="1"
+            android:id="@+id/one_button_1"
+            android:onClick="onClickNumberBtn"/>
+
+        <Button
+            android:layout_width="@dimen/number_size"
+            android:layout_height="@dimen/number_size"
+            android:text="C"
+            android:layout_weight="2"
+            android:id="@+id/c_button"
+            android:onClick="onClickCBtn"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
