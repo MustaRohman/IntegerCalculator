@@ -107,7 +107,7 @@
             android:layout_height="@dimen/number_size"
             android:text="="
             android:id="@+id/equal_button"
-            android:onClick="onClickOperation"/>
+            android:onClick="onClickEqual"/>
 
     </LinearLayout>
 

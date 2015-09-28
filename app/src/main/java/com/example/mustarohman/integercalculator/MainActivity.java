@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private String inputNumber;
     private int firstInt;
     private int secondInt;
+    private String operatorStr;
+    private boolean operandSaved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         inputNumber = "0";
         firstInt = 0;
         secondInt = 0;
+        operandSaved = false;
 
         textView = (TextView) findViewById(R.id.textView);
 
@@ -54,13 +57,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickNumberBtn(View view) {
 
+        Button numberBtn = (Button) view;
+
         if (inputNumber.equals("0")){
             inputNumber = "";
         };
+        if (operandSaved ==  true && inputNumber.equals("")) {
 
-        Button numberBtn = (Button) view;
-        inputNumber+= numberBtn.getText().toString();
+            inputNumber = "";
 
+        }
+        inputNumber += numberBtn.getText().toString();
         updateNumberText();
 
     }
@@ -73,18 +80,79 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickCBtn(View view) {
 
+
         inputNumber = "0";
         firstInt = 0;
         secondInt = 0;
+        operandSaved = false;
         updateNumberText();
 
     }
 
-    public void performOperation(){
 
+    /**
+     * Performs calculation with 2 operands and the saved operator and updates screen
+     * @param secondOperand Calculates this with the first saved operand
+     */
+    public void performOperation(int secondOperand){
+
+        switch(operatorStr.charAt(0)){
+            case '+':
+                System.out.println(firstInt + " + "  + secondOperand);
+                firstInt = firstInt + secondOperand;
+                break;
+            case  '-':
+                System.out.println(firstInt + " -  " + secondOperand);
+                firstInt = firstInt - secondOperand;
+                break;
+            case '/':
+                System.out.println(firstInt + " -  " + secondOperand);
+                firstInt = firstInt / secondOperand;
+                break;
+            case '*':
+                firstInt = firstInt * secondOperand;
+                break;
+        }
+
+        inputNumber = String.valueOf(firstInt);
+        updateNumberText();
     }
 
 
     public void onClickOperation(View view) {
+        Button opBtn = (Button) view;
+
+        if (operandSaved == false) {
+            //Save first operand
+            firstInt = Integer.parseInt(inputNumber);
+            //Notifies that operand has been saved
+            operandSaved = true;
+        } else {
+            performOperation(Integer.parseInt(inputNumber));
+            inputNumber = String.valueOf(firstInt);
+            updateNumberText();
+        }
+
+        //Saves operator
+        operatorStr = ((Button) view).getText().toString();
+        inputNumber = "";
+
+
+    }
+
+    public void onClickEqual(View view) {
+
+        //Saves the current int on the screen
+        secondInt = Integer.parseInt(textView.getText().toString());
+
+        performOperation(secondInt);
+
+        firstInt = 0;
+        secondInt = 0;
+        operandSaved = false;
+
+        inputNumber = "";
+
+
     }
 }
