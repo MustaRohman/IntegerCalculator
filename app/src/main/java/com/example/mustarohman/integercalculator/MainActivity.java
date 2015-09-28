@@ -11,14 +11,22 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
-    private String inputNumber = "0";
+    private String inputNumber;
+    private int firstInt;
+    private int secondInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        inputNumber = "0";
+        firstInt = 0;
+        secondInt = 0;
+
         textView = (TextView) findViewById(R.id.textView);
+
+        updateNumberText();
 
     }
 
@@ -65,8 +73,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickCBtn(View view) {
 
-        inputNumber = "";
+        inputNumber = "0";
+        firstInt = 0;
+        secondInt = 0;
         updateNumberText();
 
+    }
+
+    public void performOperation(){
+
+    }
+
+
+    public void onClickOperation(View view) {
     }
 }
