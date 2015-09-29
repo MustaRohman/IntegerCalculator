@@ -1,17 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="300dp"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/textView"/>
 
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:rowCount="4"
+        android:columnCount="4">
 
         <Button
             android:layout_width="@dimen/number_size"
@@ -39,13 +43,8 @@
             android:layout_height="@dimen/number_size"
             android:text="+"
             android:id="@+id/plus_button"
-            android:onClick="onClickOperation"/>
+            android:onClick="onClickOperator"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="@dimen/number_size"
@@ -73,13 +72,8 @@
             android:layout_height="@dimen/number_size"
             android:text="-"
             android:id="@+id/minus_button"
-            android:onClick="onClickOperation"/>
+            android:onClick="onClickOperator"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="@dimen/number_size"
@@ -104,16 +98,12 @@
 
         <Button
             android:layout_width="@dimen/number_size"
-            android:layout_height="@dimen/number_size"
+            android:layout_height="match_parent"
             android:text="="
             android:id="@+id/equal_button"
-            android:onClick="onClickEqual"/>
+            android:onClick="onClickEqual"
+            android:layout_rowSpan="2"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="@dimen/number_size"
@@ -121,16 +111,19 @@
             android:text="0"
             android:layout_weight="1"
             android:id="@+id/one_button_1"
-            android:onClick="onClickNumberBtn"/>
+            android:onClick="onClickNumberBtn"
+            android:layout_rowWeight="1"/>
 
         <Button
-            android:layout_width="@dimen/number_size"
+            android:layout_width="147dp"
             android:layout_height="@dimen/number_size"
             android:text="C"
             android:layout_weight="2"
             android:id="@+id/c_button"
-            android:onClick="onClickCBtn"/>
-    </LinearLayout>
+            android:onClick="onClickCBtn"
+            android:layout_columnSpan="2"
+            />
+    </GridLayout>
 
 
 

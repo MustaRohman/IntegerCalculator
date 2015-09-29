@@ -119,7 +119,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickOperation(View view) {
+    /**
+     *
+     * @param view
+     */
+    public void onClickOperator(View view) {
         Button opBtn = (Button) view;
 
         if (operandSaved == false) {
@@ -131,28 +135,37 @@ public class MainActivity extends AppCompatActivity {
             performOperation(Integer.parseInt(inputNumber));
             inputNumber = String.valueOf(firstInt);
             updateNumberText();
+
+            operandSaved = false;
         }
 
         //Saves operator
-        operatorStr = ((Button) view).getText().toString();
+        operatorStr = opBtn.getText().toString();
         inputNumber = "";
 
 
     }
 
+    /**
+     * Performs the calculation on the first integer saved and the number currently on
+     * the screen. Then resets the saved data to default states, ready for another calculation
+     * @param view
+     */
     public void onClickEqual(View view) {
 
-        //Saves the current int on the screen
-        secondInt = Integer.parseInt(textView.getText().toString());
+        if (operandSaved) {
+            //Saves the current int on the screen
+            secondInt = Integer.parseInt(textView.getText().toString());
 
-        performOperation(secondInt);
+            performOperation(secondInt);
 
-        firstInt = 0;
-        secondInt = 0;
-        operandSaved = false;
+//            firstInt = 0;
+//            secondInt = 0;
+            operandSaved = false;
 
-        inputNumber = "";
+//            inputNumber = "";
 
+        }
 
     }
 }
